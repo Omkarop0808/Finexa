@@ -1,36 +1,303 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💰 Finexa - Smart Financial Management
 
-## Getting Started
+> **Transform your financial life with intelligent automation and AI-powered insights**
 
-First, run the development server:
+Finexa is a modern, full-stack financial management application that helps users take complete control of their finances through smart automation, real-time insights, and intuitive design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
+![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?style=for-the-badge&logo=prisma)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
+
+## ✨ Features
+
+### 🏦 **Multi-Account Management**
+- **Current & Savings Accounts** - Manage multiple accounts in one place
+- **Real-time Balance Tracking** - Live updates across all accounts
+- **Account Analytics** - Detailed insights per account
+- **Default Account Settings** - Streamlined transaction flow
+
+### 💸 **Smart Transaction Management**
+- **Automated Categorization** - AI-powered expense categorization
+- **Receipt Scanning** - Digital receipt storage and processing
+- **Recurring Transactions** - Automated handling of regular income/expenses
+- **Transaction Search & Filter** - Advanced filtering and search capabilities
+- **Bulk Operations** - Efficient transaction management
+
+### 📊 **Intelligent Budgeting**
+- **Smart Budget Creation** - AI-recommended budget allocations
+- **Real-time Alerts** - Proactive spending notifications at 80% usage
+- **Budget Analytics** - Detailed spending pattern analysis
+- **Monthly Reports** - Comprehensive financial summaries
+- **Overspend Protection** - Intelligent warnings and recommendations
+
+### 🤖 **AI-Powered Insights**
+- **Spending Pattern Analysis** - Machine learning-driven insights
+- **Personalized Recommendations** - Tailored financial advice
+- **Monthly Financial Reports** - AI-generated summaries with actionable insights
+- **Trend Prediction** - Future spending forecasts
+- **Goal Tracking** - Progress monitoring with smart suggestions
+
+### 📧 **Automated Communications**
+- **Budget Alert Emails** - Beautiful, responsive email notifications
+- **Monthly Reports** - Comprehensive financial summaries via email
+- **Smart Scheduling** - Automated report generation and delivery
+- **Professional Templates** - Clean, branded email designs
+
+### 🔐 **Enterprise-Grade Security**
+- **Clerk Authentication** - Secure user management and authentication
+- **Arcjet Protection** - Advanced bot detection and DDoS protection
+- **Rate Limiting** - API protection against abuse
+- **Secure Middleware** - Multi-layer security implementation
+- **Data Encryption** - End-to-end data protection
+
+## 🚀 Tech Stack
+
+### **Frontend**
+- **Next.js 16** - React framework with App Router
+- **React 19** - Latest React with concurrent features
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Shadcn/ui** - Beautiful, accessible component library
+- **Radix UI** - Headless UI primitives
+- **Lucide React** - Modern icon library
+
+### **Backend & Database**
+- **PostgreSQL** - Robust relational database
+- **Prisma ORM** - Type-safe database client
+- **Custom Prisma Output** - Optimized client generation
+- **Database Migrations** - Version-controlled schema changes
+
+### **Authentication & Security**
+- **Clerk** - Complete authentication solution
+- **Arcjet** - Bot protection and rate limiting
+- **Middleware Protection** - Route-level security
+- **Environment Security** - Secure configuration management
+
+### **Automation & AI**
+- **Inngest** - Reliable background job processing
+- **Google Gemini AI** - Advanced language model for insights
+- **Automated Scheduling** - Cron-based task execution
+- **Email Automation** - Resend integration for notifications
+
+### **Development Tools**
+- **ESLint** - Code quality and consistency
+- **React Hook Form** - Performant form management
+- **Zod** - Runtime type validation
+- **Date-fns** - Modern date manipulation
+- **GSAP** - High-performance animations
+
+## 📱 Key Functionalities
+
+### **Dashboard Overview**
+- Real-time financial snapshot
+- Account balance summaries
+- Recent transaction history
+- Budget progress indicators
+- Quick action buttons
+
+### **Transaction Management**
+- Create income/expense transactions
+- Categorize with smart suggestions
+- Upload and manage receipts
+- Set up recurring transactions
+- Bulk import/export capabilities
+
+### **Budget Planning**
+- Create monthly budgets
+- Track spending against limits
+- Receive proactive alerts
+- Analyze spending patterns
+- Adjust budgets based on insights
+
+### **Account Management**
+- Add multiple accounts
+- Set default accounts
+- View account-specific analytics
+- Manage account settings
+- Transfer between accounts
+
+### **Reporting & Analytics**
+- Monthly financial reports
+- Category-wise spending analysis
+- Trend visualization
+- Export capabilities
+- AI-generated insights
+
+## 🛠 Installation & Setup
+
+### **Prerequisites**
+- Node.js 18+ 
+- PostgreSQL database
+- npm or yarn package manager
+
+### **Environment Variables**
+Create a `.env` file with the following variables:
+
+```env
+# Database
+DATABASE_URL="your_postgresql_connection_string"
+
+# Authentication (Clerk)
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="sign-up"
+
+# Security (Arcjet)
+ARCJET_KEY="your_arcjet_key"
+
+# Email (Resend)
+RESEND_API_KEY="your_resend_api_key"
+
+# AI (Google Gemini)
+GEMINI_API_KEY="your_gemini_api_key"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Installation Steps**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/finexa.git
+   cd finexa
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Set up the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📚 Available Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run email:dev    # Preview email templates
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Database Commands**
+```bash
+npx prisma generate  # Generate Prisma client
+npx prisma db push   # Push schema changes
+npx prisma migrate   # Run migrations
+npx prisma studio    # Open Prisma Studio
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗 Project Structure
+
+```
+finexa/
+├── app/                    # Next.js App Router
+│   ├── (auth)/            # Authentication pages
+│   ├── (main)/            # Protected application pages
+│   ├── api/               # API routes
+│   └── globals.css        # Global styles
+├── components/            # Reusable React components
+│   └── ui/               # Shadcn/ui components
+├── lib/                  # Utilities and configurations
+│   ├── prisma.js         # Database client
+│   ├── arcjet.js         # Security configuration
+│   └── inngest/          # Background job functions
+├── actions/              # Server actions
+├── data/                 # Static data and constants
+├── emails/               # Email templates
+├── hooks/                # Custom React hooks
+├── prisma/               # Database schema and migrations
+└── public/               # Static assets
+```
+
+## 🔄 Automated Features
+
+### **Background Jobs (Inngest)**
+- **Budget Alerts** - Automated spending notifications (every 6 hours)
+- **Recurring Transactions** - Daily processing of recurring items
+- **Monthly Reports** - Automated report generation (1st of each month)
+- **AI Insights** - Intelligent analysis and recommendations
+
+### **Email Automation**
+- **Budget Alerts** - Sent when 80% of budget is used
+- **Monthly Reports** - Comprehensive financial summaries
+- **Professional Templates** - Responsive, branded email designs
+- **Smart Scheduling** - Automated delivery based on user activity
+
+## 🎨 Design System
+
+### **Color Palette**
+- **Primary**: Blue/Purple gradient theme
+- **Success**: Green for positive financial metrics
+- **Warning**: Orange for budget alerts
+- **Error**: Red for critical notifications
+- **Neutral**: Gray scale for text and backgrounds
+
+### **Typography**
+- **Headings**: Inter font family
+- **Body**: System font stack for optimal performance
+- **Code**: Monospace for technical elements
+
+### **Components**
+- **Consistent Design Language** - Unified component library
+- **Accessibility First** - WCAG compliant components
+- **Responsive Design** - Mobile-first approach
+- **Dark Mode Ready** - Theme switching capability
+
+## 🚀 Deployment
+
+### **Vercel (Recommended)**
+1. Connect your GitHub repository to Vercel
+2. Add environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### **Other Platforms**
+- **Netlify** - Full-stack deployment support
+- **Railway** - Database and application hosting
+- **Docker** - Containerized deployment option
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Clerk** for authentication infrastructure
+- **Arcjet** for security and protection
+- **Inngest** for reliable background processing
+- **Vercel** for deployment platform
+- **Shadcn** for beautiful UI components
+
+## 📞 Support
+
+For support, email support@finexa.com or join our community discussions.
+
+---
+
+<div align="center">
+  <strong>Built with ❤️ for better financial management</strong>
+  <br>
+  <sub>Finexa - Your Smart Financial Companion</sub>
+</div>

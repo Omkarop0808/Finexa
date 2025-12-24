@@ -112,25 +112,35 @@ if(transactionResult?.success && !transactionLoading){
 
   const handleScanComplete = useCallback((scannedData) => {
     if (scannedData) {
+      console.log("Scanned data received:", scannedData); // Debug log
+      
       // Set the form values with scanned data
       if (scannedData.amount) {
-        setValue("amount", scannedData.amount.toString());
+        const amountString = scannedData.amount.toString();
+        console.log("Setting amount to:", amountString); // Debug log
+        setValue("amount", amountString, { shouldValidate: true, shouldDirty: true });
       }
       if (scannedData.description) {
-        setValue("description", scannedData.description);
+        setValue("description", scannedData.description, { shouldValidate: true, shouldDirty: true });
       }
       if (scannedData.date) {
-        setValue("date", new Date(scannedData.date));
+        setValue("date", new Date(scannedData.date), { shouldValidate: true, shouldDirty: true });
       }
       if (scannedData.category) {
-        setValue("category", scannedData.category);
+        setValue("category", scannedData.category, { shouldValidate: true, shouldDirty: true });
       }
       // Set type to EXPENSE by default for receipts
-      setValue("type", "EXPENSE");
+      setValue("type", "EXPENSE", { shouldValidate: true, shouldDirty: true });
+      
+      // Force a re-render by triggering form validation
+      setTimeout(() => {
+        const currentAmount = getValues("amount");
+        console.log("Current amount after setValue:", currentAmount); // Debug log
+      }, 100);
       
       toast.success("Receipt data populated in form");
     }
-  }, [setValue]);
+  }, [setValue, getValues]);
 
 
   return (

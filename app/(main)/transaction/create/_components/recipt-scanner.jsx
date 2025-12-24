@@ -27,25 +27,12 @@ export function ReceiptScanner({ onScanComplete }) {
 
   useEffect(() => {
     if (scannedData && !scanReceiptLoading) {
-      if (scannedData.success) {
-        onScanComplete(scannedData.data);
-        toast.success("Receipt scanned successfully");
-      } else {
-        toast.error(scannedData.error || "Failed to scan receipt");
-      }
+      onScanComplete(scannedData);
     }
-  }, [scanReceiptLoading, scannedData, onScanComplete]);
+  }, [scanReceiptLoading, scannedData]);
 
   return (
-    <>
-      <style jsx>{`
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
-      <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4">
       <input
         type="file"
         ref={fileInputRef}
@@ -60,14 +47,9 @@ export function ReceiptScanner({ onScanComplete }) {
       <Button
         type="button"
         variant="outline"
-        className="w-full h-10 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 hover:opacity-90 transition-opacity text-white hover:text-white"
-        style={{
-          backgroundSize: '200% 200%',
-          animation: 'gradientShift 3s ease infinite'
-        }}
+        className="w-full h-10 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 animate-gradient hover:opacity-90 transition-opacity text-white hover:text-white"
         onClick={() => fileInputRef.current?.click()}
         disabled={scanReceiptLoading}
-        suppressHydrationWarning
       >
         {scanReceiptLoading ? (
           <>
@@ -82,6 +64,5 @@ export function ReceiptScanner({ onScanComplete }) {
         )}
       </Button>
     </div>
-    </>
   );
 }

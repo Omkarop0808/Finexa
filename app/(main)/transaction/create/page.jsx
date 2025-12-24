@@ -1,6 +1,6 @@
 import { getUserAccount } from '@/actions/dashboard';
 import React from 'react'
-import AddTransactionForm from './_components/transaction-form';
+import { AddTransactionForm } from './_components/transaction-form';
 import { defaultCategories } from '@/data/categories';
 import { getTransaction } from '@/actions/transaction';
 

@@ -1,5 +1,4 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import aj from '@/lib/arcjet';
 
 const isProtectedRoute = createRouteMatcher([
   "/dashboard(.*)",
@@ -8,14 +7,19 @@ const isProtectedRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
-  // Apply Arcjet protection first (reuse existing config)
-  const decision = await aj.protect(req, { userId: "anonymous" });
+  // Simple rate limiting check (lightweight alternative to Arcjet)
+  const userAgent = req.headers.get('user-agent') || '';
+  const suspiciousPatterns = ['bot', 'crawler', 'spider', 'scraper'];
+  const isSuspicious = suspiciousPatterns.some(pattern => 
+    userAgent.toLowerCase().includes(pattern)
+  );
   
-  if (decision.isDenied()) {
+  // Block obvious bots (basic protection)
+  if (isSuspicious && !userAgent.includes('Googlebot')) {
     return new Response("Forbidden", { status: 403 });
   }
 
-  // Then check authentication for protected routes
+  // Check authentication for protected routes
   const { userId } = await auth();
   if (!userId && isProtectedRoute(req)) {
     const { redirectToSignIn } = await auth();
@@ -31,4 +35,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 };
-

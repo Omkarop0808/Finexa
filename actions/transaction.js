@@ -2,7 +2,7 @@
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import aj from "@/lib/arcjet";
+import aj from "@/lib/arcjet-api";
 import { request } from "@arcjet/next";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 

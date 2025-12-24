@@ -43,6 +43,7 @@ const AddTransactionForm = ({ accounts, categories,editMode = false,initialData 
     getValues,
     reset,
     control,
+    trigger,
   } = useForm({
     resolver: zodResolver(transactionSchema),
     defaultValues: editMode && initialData ? {
@@ -79,12 +80,10 @@ const AddTransactionForm = ({ accounts, categories,editMode = false,initialData 
   const amount = watch("amount");
 
   const onSubmit = async(data)=>{
-    console.log("Form submitted with data:", data); // Debug log
     const formData={
         ...data,
         amount:parseFloat(data.amount),
     }
-    console.log("Processed form data:", formData); // Debug log
     if(editMode){
       transactionFn(editId,formData)
     }else{
@@ -124,26 +123,15 @@ if(transactionResult?.success && !transactionLoading){
         const amountString = scannedData.amount.toString();
         console.log("Setting amount to:", amountString); // Debug log
         
-        // Try multiple approaches to set the amount
+        // Set the amount value
         setValue("amount", amountString, { shouldValidate: true, shouldDirty: true, shouldTouch: true });
         
-        // Force trigger change event
+        // Force re-render and validation
         setTimeout(() => {
+          trigger("amount"); // Force re-validation and re-render
           const currentAmount = getValues("amount");
           console.log("Current amount after setValue:", currentAmount); // Debug log
-          
-          // If still not set, try again with different approach
-          if (!currentAmount || currentAmount !== amountString) {
-            console.log("Amount not set properly, trying again..."); 
-            setValue("amount", amountString, { shouldValidate: true });
-            
-            // Trigger form re-render
-            setTimeout(() => {
-              const finalAmount = getValues("amount");
-              console.log("Final amount check:", finalAmount);
-            }, 50);
-          }
-        }, 100);
+        }, 50);
       }
       if (scannedData.description) {
         setValue("description", scannedData.description, { shouldValidate: true, shouldDirty: true });
@@ -159,7 +147,7 @@ if(transactionResult?.success && !transactionLoading){
       
       toast.success("Receipt data populated in form");
     }
-  }, [setValue, getValues]);
+  }, [setValue, getValues, trigger]);
 
 
   return (
@@ -225,8 +213,6 @@ if(transactionResult?.success && !transactionLoading){
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-700">Amount</label>
-            {/* Debug display */}
-            <div className="text-xs text-gray-500">Debug - Current amount: {amount || "empty"}</div>
             <div className="relative">
               <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
               <Controller
@@ -375,25 +361,6 @@ if(transactionResult?.success && !transactionLoading){
               )}
             </div>
           )}
-        </div>
-
-        {/* Debug section - remove this later */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded p-4">
-          <p className="text-sm text-yellow-800">Debug Info:</p>
-          <p className="text-xs">Amount value: {amount || "empty"}</p>
-          <p className="text-xs">All form values: {JSON.stringify(getValues())}</p>
-          <Button 
-            type="button" 
-            variant="outline" 
-            size="sm"
-            onClick={() => {
-              const values = getValues();
-              console.log("Current form values:", values);
-              alert(`Amount: ${values.amount}, Type: ${values.type}`);
-            }}
-          >
-            Test Form Values
-          </Button>
         </div>
 
         {/* Action Buttons */}

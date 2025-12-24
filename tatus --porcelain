@@ -1,0 +1,5 @@
+[33m24f9213[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Prepare for deployment
+[33m747a6ca[m Prepare for deployment
+[33m6631f3a[m Add extensive debugging for receipt scanner amount issue - fix controlled/uncontrolled components
+[33m2b065f7[m Fix receipt scanner amount not updating in form - add debugging and force form validation
+[33m2d05a9e[m Exclude Inngest API routes from middleware protection

@@ -14,6 +14,8 @@ const nextConfig = {
       bodySizeLimit:"5mb",
     },
   },
+  // Add empty turbopack config to silence the warning
+  turbopack: {},
   // Optimize edge function bundle size
   webpack: (config, { isServer, dev }) => {
     if (!isServer && !dev) {

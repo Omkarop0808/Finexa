@@ -47,7 +47,7 @@ const AddTransactionForm = ({ accounts, categories,editMode = false,initialData 
     resolver: zodResolver(transactionSchema),
     defaultValues: editMode && initialData ? {
       type: initialData.type,
-      amount: initialData.amount,
+      amount: initialData.amount.toString(),
       description: initialData.description,
       category: initialData.category,
       date: new Date(initialData.date),
@@ -60,8 +60,10 @@ const AddTransactionForm = ({ accounts, categories,editMode = false,initialData 
       amount: "",
       description: "",
       accountId: "",
+      category: "",
       date: new Date(),
       isRecurring: false,
+      recurringInterval: "",
     },
   });
 
@@ -74,12 +76,15 @@ const AddTransactionForm = ({ accounts, categories,editMode = false,initialData 
   const type = watch("type");
   const isRecurring = watch("isRecurring");
   const date = watch("date");
+  const amount = watch("amount");
 
   const onSubmit = async(data)=>{
+    console.log("Form submitted with data:", data); // Debug log
     const formData={
         ...data,
         amount:parseFloat(data.amount),
     }
+    console.log("Processed form data:", formData); // Debug log
     if(editMode){
       transactionFn(editId,formData)
     }else{
@@ -118,7 +123,27 @@ if(transactionResult?.success && !transactionLoading){
       if (scannedData.amount) {
         const amountString = scannedData.amount.toString();
         console.log("Setting amount to:", amountString); // Debug log
-        setValue("amount", amountString, { shouldValidate: true, shouldDirty: true });
+        
+        // Try multiple approaches to set the amount
+        setValue("amount", amountString, { shouldValidate: true, shouldDirty: true, shouldTouch: true });
+        
+        // Force trigger change event
+        setTimeout(() => {
+          const currentAmount = getValues("amount");
+          console.log("Current amount after setValue:", currentAmount); // Debug log
+          
+          // If still not set, try again with different approach
+          if (!currentAmount || currentAmount !== amountString) {
+            console.log("Amount not set properly, trying again..."); 
+            setValue("amount", amountString, { shouldValidate: true });
+            
+            // Trigger form re-render
+            setTimeout(() => {
+              const finalAmount = getValues("amount");
+              console.log("Final amount check:", finalAmount);
+            }, 50);
+          }
+        }, 100);
       }
       if (scannedData.description) {
         setValue("description", scannedData.description, { shouldValidate: true, shouldDirty: true });
@@ -131,12 +156,6 @@ if(transactionResult?.success && !transactionLoading){
       }
       // Set type to EXPENSE by default for receipts
       setValue("type", "EXPENSE", { shouldValidate: true, shouldDirty: true });
-      
-      // Force a re-render by triggering form validation
-      setTimeout(() => {
-        const currentAmount = getValues("amount");
-        console.log("Current amount after setValue:", currentAmount); // Debug log
-      }, 100);
       
       toast.success("Receipt data populated in form");
     }
@@ -206,15 +225,25 @@ if(transactionResult?.success && !transactionLoading){
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-700">Amount</label>
+            {/* Debug display */}
+            <div className="text-xs text-gray-500">Debug - Current amount: {amount || "empty"}</div>
             <div className="relative">
               <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
-              <Input
-                type="number"
-                step="0.01"
-                placeholder="0.00"
-                className="pl-8"
-                {...register("amount")}
-                suppressHydrationWarning
+              <Controller
+                name="amount"
+                control={control}
+                render={({ field }) => (
+                  <Input
+                    type="number"
+                    step="0.01"
+                    placeholder="0.00"
+                    className="pl-8"
+                    value={field.value || ""}
+                    onChange={(e) => field.onChange(e.target.value)}
+                    onBlur={field.onBlur}
+                    suppressHydrationWarning
+                  />
+                )}
               />
             </div>
             {errors.amount && (
@@ -228,7 +257,7 @@ if(transactionResult?.success && !transactionLoading){
               name="accountId"
               control={control}
               render={({ field }) => (
-                <Select onValueChange={field.onChange} value={field.value}>
+                <Select onValueChange={field.onChange} value={field.value || ""}>
                   <SelectTrigger className="w-full" suppressHydrationWarning>
                     <SelectValue placeholder="Select Account" />
                   </SelectTrigger>
@@ -264,7 +293,7 @@ if(transactionResult?.success && !transactionLoading){
             name="category"
             control={control}
             render={({ field }) => (
-              <Select onValueChange={field.onChange} value={field.value}>
+              <Select onValueChange={field.onChange} value={field.value || ""}>
                 <SelectTrigger className="w-full" suppressHydrationWarning>
                   <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
@@ -346,6 +375,25 @@ if(transactionResult?.success && !transactionLoading){
               )}
             </div>
           )}
+        </div>
+
+        {/* Debug section - remove this later */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded p-4">
+          <p className="text-sm text-yellow-800">Debug Info:</p>
+          <p className="text-xs">Amount value: {amount || "empty"}</p>
+          <p className="text-xs">All form values: {JSON.stringify(getValues())}</p>
+          <Button 
+            type="button" 
+            variant="outline" 
+            size="sm"
+            onClick={() => {
+              const values = getValues();
+              console.log("Current form values:", values);
+              alert(`Amount: ${values.amount}, Type: ${values.type}`);
+            }}
+          >
+            Test Form Values
+          </Button>
         </div>
 
         {/* Action Buttons */}

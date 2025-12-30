@@ -61,7 +61,8 @@ Finexa is a modern, full-stack financial management application that helps users
 <img width="1108" height="862" alt="Screenshot 2025-12-24 184130" src="https://github.com/user-attachments/assets/5971cda8-e700-4854-aa2b-e5b0a582375e" />
 <img width="1004" height="775" alt="Screenshot 2025-12-24 184014" src="https://github.com/user-attachments/assets/1f05d0c3-4e15-4a9b-ab39-0d8a5ea43adc" />
 <img width="1895" height="864" alt="Screenshot 2025-12-24 183956" src="https://github.com/user-attachments/assets/81169b2f-e415-4a98-aee5-de69925d4427" />
-<img width="1891" height="912" alt="Screenshot 2025-12-24 183940" src="https://github.com/user-attachments/assets/01fcd5e1-17f6-47a4-b288-81a247a2bb92" />
+<img width="1891" height="857" alt="image" src="https://github.com/user-attachments/assets/a700af78-62ed-4fe1-a1f8-f924629bd8a6" />
+
 
 
 ## 🚀 Tech Stack

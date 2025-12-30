@@ -1,3 +1,5 @@
+
+<img width="262" height="573" alt="Screenshot 2025-12-25 003015" src="https://github.com/user-attachments/assets/a5330e19-d6e1-4131-8608-fafdeeb92fbd" />
 # 💰 Finexa - Smart Financial Management
 
 > **Transform your financial life with intelligent automation and AI-powered insights**
@@ -6,7 +8,7 @@ Finexa is a modern, full-stack financial management application that helps users
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
+![Javascript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=javascript)
 ![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?style=for-the-badge&logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
@@ -51,6 +53,13 @@ Finexa is a modern, full-stack financial management application that helps users
 - **Rate Limiting** - API protection against abuse
 - **Secure Middleware** - Multi-layer security implementation
 - **Data Encryption** - End-to-end data protection
+
+  
+<img width="1108" height="862" alt="Screenshot 2025-12-24 184130" src="https://github.com/user-attachments/assets/5971cda8-e700-4854-aa2b-e5b0a582375e" />
+<img width="1004" height="775" alt="Screenshot 2025-12-24 184014" src="https://github.com/user-attachments/assets/1f05d0c3-4e15-4a9b-ab39-0d8a5ea43adc" />
+<img width="1895" height="864" alt="Screenshot 2025-12-24 183956" src="https://github.com/user-attachments/assets/81169b2f-e415-4a98-aee5-de69925d4427" />
+<img width="1891" height="912" alt="Screenshot 2025-12-24 183940" src="https://github.com/user-attachments/assets/01fcd5e1-17f6-47a4-b288-81a247a2bb92" />
+
 
 ## 🚀 Tech Stack
 

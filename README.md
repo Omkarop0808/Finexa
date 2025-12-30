@@ -1,5 +1,6 @@
 
-<img width="262" height="573" alt="Screenshot 2025-12-25 003015" src="https://github.com/user-attachments/assets/a5330e19-d6e1-4131-8608-fafdeeb92fbd" />
+<img width="1896" height="969" alt="Screenshot 2025-12-24 183929" src="https://github.com/user-attachments/assets/096a5d57-6a2f-4e77-95ca-ebb32d2d4da9" />
+
 # 💰 Finexa - Smart Financial Management
 
 > **Transform your financial life with intelligent automation and AI-powered insights**
@@ -13,6 +14,8 @@ Finexa is a modern, full-stack financial management application that helps users
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
 ## ✨ Features
+
+<img width="262" height="573" alt="Screenshot 2025-12-25 003015" src="https://github.com/user-attachments/assets/a5330e19-d6e1-4131-8608-fafdeeb92fbd" />
 
 ### 🏦 **Multi-Account Management**
 - **Current & Savings Accounts** - Manage multiple accounts in one place

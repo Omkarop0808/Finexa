@@ -166,7 +166,7 @@ const HeroSection = () => {
 
           <Link href="/about">
             <Button className="bg-transparent border border-gray-300 text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-xl transition-all">
-              Learn More
+              Demo
             </Button>
           </Link>
         </div>

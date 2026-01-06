@@ -164,7 +164,7 @@ const HeroSection = () => {
             </Button>
           </Link>
 
-          <Link href="/about">
+          <Link href="https://youtu.be/Vaave5V09gg?si=BlqbAZrdYrU_CJ8y">
             <Button className="bg-transparent border border-gray-300 text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-xl transition-all">
               Demo
             </Button>

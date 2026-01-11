@@ -277,9 +277,7 @@ finexa/
 3. Deploy automatically on push to main branch
 
 ### **Other Platforms**
-- **Netlify** - Full-stack deployment support
-- **Railway** - Database and application hosting
-- **Docker** - Containerized deployment option
+- **Vercel** - Full-stack deployment support
 
 ## 🤝 Contributing
 

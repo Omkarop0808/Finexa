@@ -14,7 +14,7 @@ Finexa is a modern, full-stack financial management application that helps users
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
 System Architecture
-![System Architecture]<img width="1928" height="6412" alt="diagram-export-1-13-2026-7_06_29-PM" src="https://github.com/user-attachments/assets/60ba2de5-5c93-41a5-a912-04c314d4460a" />
+<img width="1928" height="6412" alt="diagram-export-1-13-2026-7_06_29-PM" src="https://github.com/user-attachments/assets/60ba2de5-5c93-41a5-a912-04c314d4460a" />
 
 ## ✨ Features
 

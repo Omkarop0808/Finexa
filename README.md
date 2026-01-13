@@ -1,4 +1,4 @@
-
+<img width="2010" height="1083" alt="diagram-export-1-13-2026-7_09_58-PM" src="https://github.com/user-attachments/assets/c2ebeb8b-db56-46f5-ac8b-742aa9d54661" />
 <img width="1896" height="969" alt="Screenshot 2025-12-24 183929" src="https://github.com/user-attachments/assets/096a5d57-6a2f-4e77-95ca-ebb32d2d4da9" />
 
 # 💰 Finexa - Smart Financial Management
@@ -14,7 +14,7 @@ Finexa is a modern, full-stack financial management application that helps users
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
 System Architecture
-<img width="1928" height="6412" alt="diagram-export-1-13-2026-7_06_29-PM" src="https://github.com/user-attachments/assets/60ba2de5-5c93-41a5-a912-04c314d4460a" />
+<img width="2010" height="1083" alt="diagram-export-1-13-2026-7_09_58-PM" src="https://github.com/user-attachments/assets/4e98dc19-65e8-4d66-a076-ef1e44b9878b" />
 
 ## ✨ Features
 

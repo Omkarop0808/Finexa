@@ -8,7 +8,7 @@ Finexa is a modern, full-stack financial management application that helps users
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
-![Javascript](https://img.shields.io/badge/JavaScript-5-blue?style=for-the-badge&logo=javascript)
+![Javascript](https://img.shields.io/badge/JavaScript?style=for-the-badge&logo=javascript)
 ![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?style=for-the-badge&logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=for-the-badge&logo=postgresql)
 
